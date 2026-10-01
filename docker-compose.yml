@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: tp-hoteles
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root2026
+      MYSQL_DATABASE: hoteles
+    ports:
+      - "3307:3306"
+    volumes:
+      # Datos persistentes de MySQL
+      - mysql_data:/var/lib/mysql
+      # Configuración del servidor (puntos 14 a 16)
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      # Se ejecuta SOLO la primera vez que el volumen está vacío.
+      # No se monta el trigger: se crea a mano después de la carga masiva.
+      - ./sql/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      # Carpeta para los CSV de la carga masiva (LOAD DATA INFILE)
+      - ./datos:/var/lib/mysql-files
+ 
+volumes:
+  mysql_data:
