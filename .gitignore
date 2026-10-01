@@ -3,7 +3,6 @@
 # archivos de más de 100 MB. El dump se comparte por la carpeta Datos del Drive.
 datos/*
 !datos/.gitkeep
-!datos/generar.py
 *.csv
 *.sql.gz
 *.dump

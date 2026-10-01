@@ -9,7 +9,7 @@
 import csv, os, random, sys, datetime as dt
 
 random.seed(2026)                       # mismos datos en las tres PC
-OUT = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'datos')
 RES_POR_HAB = int(sys.argv[1]) if len(sys.argv) > 1 else 600
 HUESPEDES   = int(sys.argv[2]) if len(sys.argv) > 2 else 1_000_000
 HOTELES, HAB_POR_HOTEL = 200, 50
