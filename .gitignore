@@ -1,0 +1,26 @@
+# --- Datos de la carga masiva (punto 8) ---------------------------
+# Los CSV y el dump de 6M de filas pesan cientos de MB y GitHub rechaza
+# archivos de más de 100 MB. El dump se comparte por la carpeta Datos del Drive.
+datos/*
+!datos/.gitkeep
+*.csv
+*.sql.gz
+*.dump
+
+# --- Python (generador de datos) -----------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Logs ----------------------------------------------------------
+*.log
+
+# --- Sistema operativo ---------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editores ------------------------------------------------------
+.vscode/
+.idea/
